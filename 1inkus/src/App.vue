@@ -713,7 +713,7 @@ export default defineComponent({
               })
             }
             const asyncFn = async () => {
-              let imageBitmap = await createImageBitmap(img, 0, 0, 5000, 5000)
+              let imageBitmap = await createImageBitmap(img, 0, 0, 2048, 2048)
               await waifu2xApi.init(curModelUrls[0])
               waifu2xApi.listenToModelDownloadProgress(curModelUrls[0], comlink.proxy(callbackDownloadProgress1))
               await waifu2xApi.init(curModelUrls[1])
