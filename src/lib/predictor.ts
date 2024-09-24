@@ -15,7 +15,7 @@ if (self.OffscreenCanvas !== undefined) {
   let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
   tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
   }
-}
+
 
 class ParamsObject {
   nInputPlane = 0;
