@@ -1,7 +1,8 @@
 'use client' // This tells Next.js this component should only run on the client
 
 import * as tf from '@tensorflow/tfjs';
-import * from '@tensorflow/tfjs-backend-webgl';
+// import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
+import '@tensorflow/tfjs-backend-webgl';
 import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
