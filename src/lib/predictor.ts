@@ -2,16 +2,6 @@
 
 import { useEffect } from 'react';
 
-function MyCanvasComponent() {
-  let canvas;
-  useEffect(() => {
-    const canvas = document.createElement('canvas');
-    // ... rest of your canvas code
-  }, []); // Empty dependency array ensures this runs once after the component mounts
-
-  return <div>{/* ... */}</div>; 
-}
-
 import * as tf from '@tensorflow/tfjs';
 import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
 import fetchProgress from 'fetch-progress';
