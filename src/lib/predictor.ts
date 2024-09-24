@@ -1,20 +1,33 @@
+'use client' // This tells Next.js this component should only run on the client
+
+import { useEffect } from 'react';
+
+function MyCanvasComponent() {
+  let canvas;
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    // ... rest of your canvas code
+  }, []); // Empty dependency array ensures this runs once after the component mounts
+
+  return <div>{/* ... */}</div>; 
+}
+
 import * as tf from '@tensorflow/tfjs';
 import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
 import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
 
-// Some browsers still do not support off-screen canvas,
-// so make some compatibility judgments.
-// However, if there is no off-screen canvas supported,
-// the library cannot be run under a web worker.
-if (self.OffscreenCanvas !== undefined) {
-  const canvas = document.createElement('canvas');
-  canvas.height=300;
-    canvas.width=320;
-  let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
-  tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
-  }
+let canvas;
+
+useEffect(() => {
+canvas = document.createElement('canvas');
+}, []); // Empty dependency array ensures this runs once after the component mounts
+
+canvas.height=300;
+canvas.width=320;
+let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
+tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
 
 
 class ParamsObject {
