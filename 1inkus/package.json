@@ -12,7 +12,9 @@
     "comlink": "^4.3.0",
     "vue": "^3.0.5",
     "vue-upload-component": "^3.0.50",
-    "waifu2x-tfjs": "file:../"
+    "waifu2x-tfjs": "file:../",
+     "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",
