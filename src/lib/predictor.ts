@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
+// import '@tensorflow/tfjs-backend-webgl';
 import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
@@ -10,7 +10,7 @@ import { Image } from './image';
 // the library cannot be run under a web worker.
 import '@tensorflow/tfjs-backend-webgpu';
 tf.setBackend('webgpu');
-
+/*
 if (self.OffscreenCanvas !== undefined) {
   const canvas = new OffscreenCanvas(320, 200);
   let context = canvas.getContext('webgpu');
@@ -22,7 +22,7 @@ if (context) { // Check if context is not null
   // You might want to provide a fallback or error message to the user here
 }
 }
-
+*/
 class ParamsObject {
   nInputPlane = 0;
   nOutputPlane = 0;
