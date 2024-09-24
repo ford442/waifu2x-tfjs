@@ -10,15 +10,8 @@ import { Image } from './image';
 // the library cannot be run under a web worker.
 if (self.OffscreenCanvas !== undefined) {
   const canvas = new OffscreenCanvas(320, 200);
-  let context = canvas.getContext('webgl2') as
-    | WebGLRenderingContext
-    | WebGL2RenderingContext
-    | null;
-  if (!context) {
-    context = canvas.getContext('webgl');
-    if (context) tf_webgl.setWebGLContext(1, context as WebGLRenderingContext);
-  } else {
-    tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
+  let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
+  tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
   }
 }
 
