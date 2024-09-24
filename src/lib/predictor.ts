@@ -1,14 +1,26 @@
-'use client' // This tells Next.js this component should only run on the client
-
 import * as tf from '@tensorflow/tfjs';
-// import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
-import '@tensorflow/tfjs-backend-webgl';
+import * as tf_webgl from '@tensorflow/tfjs-backend-webgl';
 import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
 
-import '@tensorflow/tfjs-backend-webgpu';
-tf.setBackend('webgpu');
+// Some browsers still do not support off-screen canvas,
+// so make some compatibility judgments.
+// However, if there is no off-screen canvas supported,
+// the library cannot be run under a web worker.
+if (self.OffscreenCanvas !== undefined) {
+  const canvas = new OffscreenCanvas(320, 200);
+  let context = canvas.getContext('webgl2') as
+    | WebGLRenderingContext
+    | WebGL2RenderingContext
+    | null;
+  if (!context) {
+    context = canvas.getContext('webgl');
+    if (context) tf_webgl.setWebGLContext(1, context as WebGLRenderingContext);
+  } else {
+    tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
+  }
+}
 
 class ParamsObject {
   nInputPlane = 0;
