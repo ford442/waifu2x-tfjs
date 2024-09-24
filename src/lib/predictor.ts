@@ -1,5 +1,6 @@
 import * as tf from '@tensorflow/tfjs';
 // import '@tensorflow/tfjs-backend-webgl';
+import '@tensorflow/tfjs-backend-wasm';
 import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
