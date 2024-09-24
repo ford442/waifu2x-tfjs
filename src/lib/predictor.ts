@@ -12,13 +12,11 @@ let canvas;
 
 useEffect(() => {
 canvas = document.createElement('canvas');
-}, []); // Empty dependency array ensures this runs once after the component mounts
-
 canvas.height=300;
 canvas.width=320;
 let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
 tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
-
+}, []); // Empty dependency array ensures this runs once after the component mounts
 
 class ParamsObject {
   nInputPlane = 0;
