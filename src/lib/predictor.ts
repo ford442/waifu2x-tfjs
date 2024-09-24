@@ -16,9 +16,9 @@ if (self.OffscreenCanvas !== undefined) {
   let context = canvas.getContext('webgl2') as OffscreenCanvasRenderingContext2D;
   if (!context) {
     context = canvas.getContext('webgl');
-    if (context) tf_webgl.setWebGLContext(1, context as WebGLRenderingContext);
+    if (context) tf_webgl.setWebGLContext(1, context as OffscreenCanvasRenderingContext2D);
   } else {
-    tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
+    tf_webgl.setWebGLContext(2, context as OffscreenCanvasRenderingContext2D);
   }
 }
 
