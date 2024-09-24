@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react';
 
 const resolveExternalsPlugin = require('vite-plugin-resolve-externals')
 
@@ -7,6 +8,7 @@ const resolveExternalsPlugin = require('vite-plugin-resolve-externals')
 export default defineConfig({
   base: './',
   plugins: [
+    react(),
     vue(),
     resolveExternalsPlugin({
       'marked': 'marked',
