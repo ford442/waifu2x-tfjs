@@ -8,15 +8,8 @@ import fetchProgress from 'fetch-progress';
 
 import { Image } from './image';
 
-let canvas;
-
-useEffect(() => {
-canvas = document.createElement('canvas');
-canvas.height=300;
-canvas.width=320;
-let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
-tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
-}, []); // Empty dependency array ensures this runs once after the component mounts
+import '@tensorflow/tfjs-backend-webgpu';
+tf.setBackend('webgpu');
 
 class ParamsObject {
   nInputPlane = 0;
