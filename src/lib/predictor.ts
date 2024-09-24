@@ -8,6 +8,9 @@ import { Image } from './image';
 // so make some compatibility judgments.
 // However, if there is no off-screen canvas supported,
 // the library cannot be run under a web worker.
+import '@tensorflow/tfjs-backend-webgpu';
+tf.setBackend('webgpu');
+
 if (self.OffscreenCanvas !== undefined) {
   const canvas = new OffscreenCanvas(320, 200);
   let context = canvas.getContext('webgl2') as
