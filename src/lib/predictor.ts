@@ -9,7 +9,9 @@ import { Image } from './image';
 // However, if there is no off-screen canvas supported,
 // the library cannot be run under a web worker.
 if (self.OffscreenCanvas !== undefined) {
-  const canvas = new OffscreenCanvas(320, 200);
+  const canvas = document.createElement('canvas');
+  canvas.height=300;
+    canvas.width=320;
   let context = canvas.getContext('webgl2') as WebGL2RenderingContext;
   tf_webgl.setWebGLContext(2, context as WebGL2RenderingContext);
   }
