@@ -14,7 +14,13 @@ tf.setBackend('webgpu');
 if (self.OffscreenCanvas !== undefined) {
   const canvas = new OffscreenCanvas(320, 200);
   let context = canvas.getContext('webgl2');
-  tf_webgl.setWebGLContext(2, context);
+if (context) { // Check if context is not null
+  tf_webgl.setWebGLContext(2, context); 
+} else {
+  // Handle the case where WebGL context creation failed
+  console.error('Failed to get WebGL context.');
+  // You might want to provide a fallback or error message to the user here
+}
 }
 
 class ParamsObject {
